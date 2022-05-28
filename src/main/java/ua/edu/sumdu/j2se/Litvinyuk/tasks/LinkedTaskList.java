@@ -1,6 +1,6 @@
-package ua.edu.sumdu.j2se.Litvinyuk.tasks;
+package ua.edu.sumdu.j2se.litvinyuk.tasks;
 
-public class LinkedTaskList {
+public class LinkedTaskList extends AbstractTaskList {
     private Node head;
     private int size;
 
@@ -22,8 +22,6 @@ public class LinkedTaskList {
 
     public boolean remove(Task task) {
 
-        // int sizebefore = size();
-
 
         if (task == null) {
             throw new NullPointerException();
@@ -33,12 +31,12 @@ public class LinkedTaskList {
         if(task == head.getNodetask()){
             head = head.getNext();
             size--;
-            return true; //true;
+            return true;
         }
 
         while (temp !=null){
             if(temp.getNext().getNodetask() == task){
-                temp.setNext(temp.getNext().getNext()); //[1]->[2]->[3]->[4]
+                temp.setNext(temp.getNext().getNext()); //[1]->[3]->[4]
                 size--;
                 return true;
             } else {
@@ -46,7 +44,7 @@ public class LinkedTaskList {
 
             }
         }
-        return  false; //sizebefore == size ? false : true;
+        return  false;
     }
 
     public int size() {return size;}
