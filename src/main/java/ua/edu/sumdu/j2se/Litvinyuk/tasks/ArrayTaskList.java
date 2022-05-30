@@ -1,8 +1,8 @@
-package ua.edu.sumdu.j2se.Litvinyuk.tasks;
+package ua.edu.sumdu.j2se.litvinyuk.tasks;
 
 import java.util.Arrays;
 
-public class ArrayTaskList {
+public class ArrayTaskList extends AbstractTaskList {
 
     private Task[] tasklist;
     private int size;
