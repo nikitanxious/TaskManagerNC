@@ -3,10 +3,16 @@ package ua.edu.sumdu.j2se.litvinyuk.tasks;
 
 
 import java.util.*;
+import java.util.stream.Stream;
 
 public class LinkedTaskList extends AbstractTaskList implements Cloneable {
     private Node head;
     private int size;
+
+    @Override
+    public Stream<Task> getStream() {
+        return Stream.of(listToArray());
+    }
 
     public void add(Task task) {
         if (task == null) {
@@ -70,20 +76,6 @@ public class LinkedTaskList extends AbstractTaskList implements Cloneable {
             temp = temp.getNext();
         }
         return temp.getNodetask();
-    }
-
-    public LinkedTaskList incoming(int from, int to) {
-
-        if (from > to) {
-            throw new IllegalArgumentException("Значення from повинно бути меншим за to!");
-        }
-        LinkedTaskList result = new LinkedTaskList();
-        for (int i = 0; i < size(); i++) {
-            if (getTask(i).nextTimeAfter(from) > from && getTask(i).nextTimeAfter(to) < to) {
-                result.add(getTask(i));
-            }
-        }
-        return result;
     }
 
 
