@@ -1,6 +1,10 @@
-package ua.edu.sumdu.j2se.Litvinyuk.tasks;
+package ua.edu.sumdu.j2se.litvinyuk.tasks;
 
-public class Task {
+import java.time.LocalDateTime;
+import java.util.Objects;
+
+public class Task implements Cloneable{
+
 
     private String title;
     private int time;
@@ -8,7 +12,12 @@ public class Task {
     private int endTime;
     private int repeatInterval;
     private boolean active;
+    private LocalDateTime localDateTime;
 
+        public Task(String title, LocalDateTime localDateTime){
+            this.title=title;
+            this.localDateTime=localDateTime;
+        }
     /**
      * Данный конструктор создает неактивную задачу, которая выполняется один раз.
      *
@@ -24,7 +33,7 @@ public class Task {
         this.title = title;
         this.time = time;
     }
-    
+
     /**
      * Данный конструктор создает неактивную задачу, которая выполняется
      * в заданном промежутке времени с заданным интервалом.
@@ -215,7 +224,46 @@ public class Task {
         return "Task{" +
                 "title='" + title + '\'' +
                 ", time=" + time +
+                ", startTime=" + startTime +
+                ", endTime=" + endTime +
+                ", repeatInterval=" + repeatInterval +
+                ", active=" + active +
+                ", localDateTime=" + localDateTime +
                 '}';
+    }
+
+    public boolean equals(Object o){
+        if(o==null){
+            return false;
+        }
+        if (this== o){
+            return true;
+        }
+        if(o.getClass()!=this.getClass()){
+            return false;
+        }
+        Task task = (Task) o;
+        return repeatInterval == task.repeatInterval && startTime==task.startTime
+                && endTime == task.endTime
+                && endTime== task.endTime &&
+                time==task.time
+                && title==task.title;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(title, time, startTime, endTime, repeatInterval, active, localDateTime);
+    }
+
+    @Override
+    public Task clone() {
+        try {
+            Task clone = (Task) super.clone();
+            // TODO: copy mutable state here, so the clone can't change the internals of the original
+            return clone;
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError();
+        }
     }
 }
 
