@@ -1,7 +1,7 @@
 package ua.edu.sumdu.j2se.litvinyuk.tasks;
 
-public abstract class AbstractTaskList {
-
+public abstract class AbstractTaskList implements Iterable<Task>{
+    protected int count;
      protected ListTypes.types type;
 
     public abstract void add(Task task);
