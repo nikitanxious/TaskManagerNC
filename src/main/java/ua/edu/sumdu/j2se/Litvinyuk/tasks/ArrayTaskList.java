@@ -2,6 +2,7 @@ package ua.edu.sumdu.j2se.litvinyuk.tasks;
 
 import java.time.LocalDateTime;
 import java.util.*;
+import java.util.stream.Stream;
 
 public class ArrayTaskList extends AbstractTaskList implements Cloneable {
 
@@ -14,6 +15,11 @@ public class ArrayTaskList extends AbstractTaskList implements Cloneable {
     }
     public ArrayTaskList(int size){
         tasklist = new Task[size];
+    }
+
+    @Override
+    public Stream<Task> getStream() {
+        return Stream.of(tasklist);
     }
 
     public void add(Task task){
@@ -97,16 +103,6 @@ public class ArrayTaskList extends AbstractTaskList implements Cloneable {
     @Override
     public int hashCode() {
         return Arrays.hashCode(tasklist);
-    }
-
-    public ArrayTaskList incoming(int from, int to) {
-        ArrayTaskList result = new ArrayTaskList();
-        for (int i = 0; i < size(); i++) {
-            if (getTask(i).nextTimeAfter(from) > from && getTask(i).nextTimeAfter(to) < to) {
-                result.add(getTask(i));
-            }
-        }
-        return result;
     }
 
 
