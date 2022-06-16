@@ -126,32 +126,7 @@ public class LinkedTaskList extends AbstractTaskList implements Cloneable {
                 }
 
 
-           // int lastRemoved = -1;
-            // Node current = head;
 
-            //@Override
-            // public boolean hasNext() {
-   //             return current != null;
-     //       }
-
-            // @Override
-            // public Task next() {
-
-                //if (hasNext()) {
-                  //  Task temp = current.getNodetask();
-                    // current = current.getNext();
-                   // return temp;
-                //}
-                //return null;
-            //}
-           // @Override
-            //public void remove() {
-              //  if (lastRemoved < 0) {
-                //    throw new IllegalStateException();
-                //}
-                //Task task = getTask(lastRemoved);
-                //LinkedTaskList.this.remove(task);
-            //}
         };
     }
     private LinkedTaskList superClone() {

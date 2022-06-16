@@ -29,34 +29,9 @@ public class ArrayTaskList extends AbstractTaskList implements Cloneable {
     }
         tasklist[size] = task;
             size++;
-       // if (task != null) {
-         //   if (size == tasklist.length) {
-           //     Task[] newTasksList = new Task[tasklist.length + 10];
-             //   System.arraycopy(tasklist, 0, newTasksList, 0, size());
-               // tasklist = newTasksList;
-            //}
-            //tasklist[size] = task;
-            //size++;
-        //}
+
     }
-    //public boolean remove(Task task){
-        //  if (task == null || size==0){
-          //  throw new NoSuchElementException();
-        //}
 
-
-          //  boolean removed = false;
-        //for( int i=0; i<size;i++){
-          //  if(removed) {
-            //    tasklist[i - 1] = tasklist[i];
-            //}else if(tasklist[i].equals(task)){
-             //   removed = true;
-               // size--;
-            //}
-            //if(removed)
-              //  size--;
-        //}
-        //return removed;
         public boolean remove(Task task) {
             for (int i = 0; i < size; i++) {
                 if (tasklist[i].equals(task)) {
