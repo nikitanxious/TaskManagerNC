@@ -1,9 +1,10 @@
 package ua.edu.sumdu.j2se.litvinyuk.tasks;
 
+import java.io.Serializable;
 import java.util.stream.Stream;
 
-public abstract class AbstractTaskList implements Iterable<Task>{
-    protected int count;
+public abstract class AbstractTaskList implements Iterable<Task>, Serializable {
+     protected int count;
      protected ListTypes.types type;
 
    public abstract Stream<Task> getStream() ;
