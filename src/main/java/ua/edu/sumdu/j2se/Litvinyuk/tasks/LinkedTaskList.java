@@ -34,7 +34,7 @@ public class LinkedTaskList extends AbstractTaskList implements Cloneable {
 
 
         if (task == null) {
-            throw new NullPointerException();
+            return false;
         }
 
         Node temp = head;
@@ -45,12 +45,13 @@ public class LinkedTaskList extends AbstractTaskList implements Cloneable {
         }
 
         while (temp != null) {
-            if (temp.getNext().getNodetask() == task) {
-                temp.setNext(temp.getNext().getNext()); //[1]->[3]->[4]
-                size--;
-                return true;
-            } else {
-                temp = temp.getNext();
+                if (temp.getNext().getNodetask() == task && temp.equals(task)) {
+                    temp.setNext(temp.getNext().getNext());
+                    size--;
+                    return true;
+                } else {
+                    temp = temp.getNext();
+
 
             }
         }
