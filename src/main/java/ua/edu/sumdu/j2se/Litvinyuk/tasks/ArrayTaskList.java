@@ -33,8 +33,10 @@ public class ArrayTaskList extends AbstractTaskList implements Cloneable {
     }
 
         public boolean remove(Task task) {
+
             for (int i = 0; i < size; i++) {
-                if (tasklist[i].equals(task)) {
+                if (tasklist[i].equals(task) && tasklist[i] == task) {
+
                     tasklist[i] = null;
                     for (int j = 0; j < size - 1; j++) {
                         if (tasklist[j] == null && tasklist[j + 1] != null) {
