@@ -1,4 +1,4 @@
-package ua.edu.sumdu.j2se.litvinyuk.tasks;
+package ua.edu.sumdu.j2se.litvinyuk.tasks.model;
 
 public class TaskListFactory {
 

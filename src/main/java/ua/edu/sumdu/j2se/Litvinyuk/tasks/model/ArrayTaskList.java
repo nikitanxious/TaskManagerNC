@@ -1,4 +1,4 @@
-package ua.edu.sumdu.j2se.litvinyuk.tasks;
+package ua.edu.sumdu.j2se.litvinyuk.tasks.model;
 
 import java.time.LocalDateTime;
 import java.util.*;
@@ -16,6 +16,8 @@ public class ArrayTaskList extends AbstractTaskList implements Cloneable {
     public ArrayTaskList(int size){
         tasklist = new Task[size];
     }
+
+
 
     @Override
     public Stream<Task> getStream() {
